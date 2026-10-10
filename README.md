@@ -2,6 +2,25 @@
 
 The Periodic Notes plugin expands on the idea of daily notes and introduces weekly and monthly notes.
 
+## Installing a development build
+
+The CI workflow runs lint, type checks, and a production build for pull requests
+and pushes to `main`. Open a successful run under the repository's **Actions**
+tab and download the `periodic-notes` artifact. Extract its `main.js`,
+`styles.css`, and `manifest.json` into your vault's
+`.obsidian/plugins/periodic-notes/` folder, then reload Obsidian and enable
+Periodic Notes in Community plugins. When replacing an existing installation,
+keep `data.json` to preserve your settings.
+
+To build locally, use Node.js 24 and the repository's bundled Yarn:
+
+```sh
+node .yarn/releases/yarn-berry.cjs install --immutable
+node .yarn/releases/yarn-berry.cjs build
+```
+
+The same three installation files are generated in the repository root.
+
 ## Weekly Notes
 
 ### Commands

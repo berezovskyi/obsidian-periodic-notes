@@ -15,9 +15,9 @@
     getLocaleOptions,
     getWeekStartOptions,
   } from "src/settings/utils";
-  import {
-    configureGlobalMomentLocale,
-    type ILocalizationSettings,
+  import type {
+    ILocalizationSettings,
+    IWeekStartOption,
   } from "src/settings/localization";
 
   import GettingStartedBanner from "./GettingStartedBanner.svelte";
@@ -29,6 +29,18 @@
   export let settings: Writable<ISettings>;
 
   let addEl: HTMLElement;
+
+  function changeWeekStart(e: Event): void {
+    const val = (e.target as HTMLSelectElement).value as IWeekStartOption;
+    $localization.weekStart = val;
+    app.vault.setConfig("weekStart", val);
+  }
+
+  function changeLocale(e: Event): void {
+    const val = (e.target as HTMLSelectElement).value;
+    $localization.localeOverride = val;
+    app.vault.setConfig("weekStart", val);
+  }
 
   function addCalendarset(): void {
     let iter = 1;
@@ -103,11 +115,7 @@
     slot="control"
     options={getWeekStartOptions()}
     value={$localization.weekStart}
-    onChange={(e) => {
-      const val = e.target.value;
-      $localization.weekStart = val;
-      app.vault.setConfig("weekStart", val);
-    }}
+    onChange={changeWeekStart}
   />
 </SettingItem>
 
@@ -121,11 +129,7 @@
     slot="control"
     options={getLocaleOptions()}
     value={$localization.localeOverride}
-    onChange={(e) => {
-      const val = e.target.value;
-      $localization.localeOverride = val;
-      app.vault.setConfig("weekStart", val);
-    }}
+    onChange={changeLocale}
   />
 </SettingItem>
 

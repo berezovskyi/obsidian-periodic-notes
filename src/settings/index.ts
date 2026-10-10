@@ -40,10 +40,6 @@ export const DEFAULT_SETTINGS: ISettings = {
   activeCalendarSet: DEFAULT_CALENDARSET_ID,
   calendarSets: [],
   enableTimelineComplication: true,
-
-  // Localization
-  localeOverride: "system-default",
-  weekStart: "locale" as IWeekStartOption,
 };
 
 export const DEFAULT_PERIODIC_CONFIG: PeriodicConfig = Object.freeze({

@@ -8,12 +8,11 @@
   import Dashboard from "./dashboard/Dashboard.svelte";
   import Details from "./details/Details.svelte";
   import { onDestroy, onMount } from "svelte";
-  import { writable, type Writable } from "svelte/store";
+  import { writable } from "svelte/store";
+  import type { Writable } from "svelte/store";
   import type { ISettings } from "..";
-  import {
-    getLocalizationSettings,
-    type ILocalizationSettings,
-  } from "../localization";
+  import { getLocalizationSettings } from "../localization";
+  import type { ILocalizationSettings } from "../localization";
 
   export let app: App;
   export let manager: CalendarSetManager;

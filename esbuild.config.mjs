@@ -1,11 +1,13 @@
 import { config } from "dotenv";
 import esbuild from "esbuild";
 import process from "process";
+import { createRequire } from "module";
 import builtins from "builtin-modules";
 import sveltePlugin from "esbuild-svelte";
 import sveltePreprocess from "svelte-preprocess";
 
-import manifest from "./manifest.json";
+const require = createRequire(import.meta.url);
+const manifest = require("./manifest.json");
 
 config();
 

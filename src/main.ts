@@ -24,10 +24,7 @@ import {
   DEFAULT_SETTINGS,
   DEFAULT_PERIODIC_CONFIG,
 } from "./settings";
-import {
-  configureGlobalMomentLocale,
-  initializeLocaleConfigOnce,
-} from "./settings/localization";
+import { initializeLocaleConfigOnce } from "./settings/localization";
 import {
   createNewCalendarSet,
   findStartupNoteConfig,
