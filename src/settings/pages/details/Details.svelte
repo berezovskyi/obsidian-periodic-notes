@@ -92,17 +92,17 @@
 
   function focusEditableEl(el: HTMLDivElement) {
     el.focus();
-    const range = document.createRange();
+    const range = el.ownerDocument.createRange();
     range.selectNodeContents(el);
 
-    const selection = window.getSelection();
+    const selection = el.ownerDocument.getSelection();
     selection?.removeAllRanges();
     selection?.addRange(range);
   }
 
   onMount(() => {
     setIcon(optionsEl, "more-vertical", 18);
-    document.getElementsByClassName("vertical-tab-content")[0].scroll(0, 0);
+    nameEl.closest(".vertical-tab-content")?.scroll(0, 0);
 
     if ($router.eState["shouldRename"]) {
       focusEditableEl(nameEl);
